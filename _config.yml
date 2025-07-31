@@ -3,8 +3,8 @@ description: "My Personal Blog"
 author:
   name: "Sílvio Meireles"
   email: "contato@silviomeireles.dev"
-  url: "mastersilvio.github.io"
-  baseurl: /mastersilvio.github.io
+  url: "https://silviomeireles.dev"
+  baseurl: ""
 
 source: .
 destination: ./_site
