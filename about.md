@@ -16,6 +16,10 @@ Me chamo Sílvio Meireles e sou CTO da [Easy Pallet](http://www.easypallet.com.b
 Um pouco sobre mim:
   - Bacharel em Sistemas de Informação e Especialista em Desenvolvimento Web.
   - Desenvolvedor full-stack focado em Ruby on Rails com fortes conhecimentos em algoritmos, banco de dados, integração de dados e Business Intelligence.
+  - Expertise em áreas técnicas especializadas:
+    - **Algoritmos**: Estruturas de dados, otimização e análise de complexidade
+    - **Inteligência Artificial**: Machine Learning, processamento de linguagem natural e automação
+    - **Matemática**: Estatística, álgebra linear e matemática aplicada à computação
   - Gosto muito de aprender coisas novas e evoluir em todos aspectos da minha vida. Gosto muito de seguir em frente, de novidades e de mudanças.
   - Sou apaixonado por tecnologia desde criança e desde sempre gosto de buscar o meu próprio conhecimento, sempre fui autodidata.
 

@@ -17,5 +17,9 @@ My name is Sílvio Meireles and I am the CTO at [Easy Pallet](http://www.easypal
 A bit about me:
   - Bachelor in Information Systems and Specialist in Web Development.
   - Full‑stack developer focused on Ruby on Rails with strong knowledge in algorithms, databases, data integration and Business Intelligence.
+  - Expertise in specialized technical areas:
+    - **Algorithms**: Data structures, optimization and complexity analysis
+    - **Artificial Intelligence**: Machine Learning, natural language processing and automation
+    - **Mathematics**: Statistics, linear algebra and applied mathematics for computing
   - Passionate about learning and evolving in all aspects of life. I enjoy moving forward, embracing novelty and change.
   - Enthusiast of technology since childhood and a lifelong self‑taught learner.
