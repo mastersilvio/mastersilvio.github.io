@@ -314,37 +314,137 @@ a:active, a:focus {
 
 /* Light theme overrides */
 html.theme-light body {
-  background: #fdfdfd;
-  color: #222;
+  /* Slightly darker background for comfortable contrast */
+  background: #f1f3f5;
+  color: #1f2328;
 }
 
 html.theme-light header {
-  background: rgba(0, 0, 0, 0.03);
-  border-bottom-color: $conifer;
+  background: rgba(0, 0, 0, 0.06);
+  /* Darker green accent (the default $conifer is too neon on light) */
+  border-bottom-color: #2f7a1f;
 }
 
 html.theme-light .theme-toggle button {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: $conifer;
-  box-shadow: 0 0 8px rgba(181, 232, 83, 0.15);
+  background: #f8f9fa;
+  border-color: #2f7a1f;
+  box-shadow: none;
+  color: #2f7a1f;
+}
+
+html.theme-light a {
+  color: #0550ae;
+  text-shadow: none;
+}
+
+html.theme-light a:visited {
+  color: #6639ba;
+}
+
+html.theme-light a:hover {
+  text-decoration: underline;
+}
+
+html.theme-light header h2 {
+  color: #57606a;
 }
 
 
 html.theme-light h1, html.theme-light h2, html.theme-light h3,
 html.theme-light h4, html.theme-light h5, html.theme-light h6 {
   text-shadow: none;
+  color: #2f7a1f;
 }
 
 html.theme-light pre {
-  background: #f6f8fa;
-  border-color: #ddd;
-  color: #333;
+  background: #eef2f6;
+  border-color: #d0d7de;
+  color: #24292f;
 }
 
 html.theme-light code.highlighter-rouge {
-  background: #f6f8fa;
-  border-color: #ddd;
-  color: #c7254e;
+  background: #eef2f6;
+  border-color: #d0d7de;
+  color: #0a3069;
+}
+
+html.theme-light blockquote {
+  color: #424a53;
+  border-left-color: #d0d7de;
+}
+
+html.theme-light th {
+  border-bottom-color: #2f7a1f;
+}
+
+html.theme-light hr {
+  border-bottom-color: #d0d7de;
+  color: #d0d7de;
+}
+
+/* Rouge (syntax highlight) overrides for light mode */
+html.theme-light .highlight {
+  color: #24292f;
+}
+
+html.theme-light .highlight .c,
+html.theme-light .highlight .cd,
+html.theme-light .highlight .cm,
+html.theme-light .highlight .c1,
+html.theme-light .highlight .cs {
+  color: #6e7781;
+}
+
+html.theme-light .highlight .k,
+html.theme-light .highlight .kn,
+html.theme-light .highlight .kp,
+html.theme-light .highlight .kr,
+html.theme-light .highlight .kv,
+html.theme-light .highlight .kc,
+html.theme-light .highlight .kt,
+html.theme-light .highlight .kd,
+html.theme-light .highlight .o,
+html.theme-light .highlight .ow {
+  color: #cf222e;
+}
+
+html.theme-light .highlight .s,
+html.theme-light .highlight .sb,
+html.theme-light .highlight .sc,
+html.theme-light .highlight .sd,
+html.theme-light .highlight .s2,
+html.theme-light .highlight .sh,
+html.theme-light .highlight .sx,
+html.theme-light .highlight .s1,
+html.theme-light .highlight .sr,
+html.theme-light .highlight .si,
+html.theme-light .highlight .se,
+html.theme-light .highlight .ss {
+  color: #0a3069;
+}
+
+html.theme-light .highlight .nt,
+html.theme-light .highlight .nn,
+html.theme-light .highlight .nc,
+html.theme-light .highlight .no {
+  color: #116329;
+}
+
+html.theme-light .highlight .na,
+html.theme-light .highlight .m,
+html.theme-light .highlight .mf,
+html.theme-light .highlight .mh,
+html.theme-light .highlight .mi,
+html.theme-light .highlight .il,
+html.theme-light .highlight .mo,
+html.theme-light .highlight .mb,
+html.theme-light .highlight .mx {
+  color: #0550ae;
+}
+
+html.theme-light .highlight .err {
+  color: #b31d28;
+  background-color: #ffebe9;
 }
 
 /* Responsiveness */
