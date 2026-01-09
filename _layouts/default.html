@@ -37,6 +37,9 @@
   {% if site.google_analytics %}
     {% include analytics.html %}
   {% endif %}
+
+  <!-- Lazy loading for images -->
+  <script src="{{ "/js/lazy-images.js" | prepend: site.baseurl | replace: '//', '/' }}" defer></script>
 </body>
 
 </html>
