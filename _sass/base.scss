@@ -125,6 +125,20 @@ header h2 {
   color: $conifer;
 }
 
+.theme-toggle button:focus {
+  outline: 2px solid $conifer;
+  outline-offset: 2px;
+}
+
+.theme-toggle button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.theme-toggle button:focus-visible {
+  outline: 2px solid $conifer;
+  outline-offset: 2px;
+}
+
 /* Main Content
 */
 
@@ -233,43 +247,6 @@ hr {
   color: #b5e853;
 }
 
-/* Buttons
-*/
-
-.btn {
-  display: inline-block;
-  background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
-  padding: 8px 18px;
-  border-radius: 50px;
-  border: 2px solid rgba(0, 0, 0, 0.7);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.7);
-  border-top: 2px solid rgba(0, 0, 0, 1);
-  color: rgba(255, 255, 255, 0.8);
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-  text-decoration: none;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.btn:hover {
-  background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
-}
-
-.btn .icon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: 1px 8px 0 0;
-  float: left;
-}
-
-.btn-github .icon {
-  opacity: 0.6;
-  background: url("../images/blacktocat.png") 0 0 no-repeat;
-}
-
 /* Links
    a, a:hover, a:visited
 */
@@ -279,25 +256,20 @@ a {
   text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 }
 
-a:active, a:focus {
-  outline: 0;
-  border: none;
-  -moz-outline-style: none
+/* Accessible focus states for keyboard navigation */
+a:focus {
+  outline: 2px solid #63c0f5;
+  outline-offset: 2px;
 }
 
-/* Clearfix */
-
-.cf:before, .cf:after {
-  content:"";
-  display:table;
+a:focus:not(:focus-visible) {
+  outline: none;
 }
 
-.cf:after {
-  clear:both;
-}
-
-.cf {
-  zoom:1;
+a:focus-visible {
+  outline: 2px solid #63c0f5;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* Make footer stick to bottom */
@@ -315,76 +287,86 @@ a:active, a:focus {
 /* Light theme overrides */
 html.theme-light body {
   /* Slightly darker background for comfortable contrast */
-  background: #f1f3f5;
-  color: #1f2328;
+  background: $light-background;
+  color: $light-text;
 }
 
 html.theme-light header {
   background: rgba(0, 0, 0, 0.06);
   /* Darker green accent (the default $conifer is too neon on light) */
-  border-bottom-color: #2f7a1f;
+  border-bottom-color: $light-green-accent;
 }
 
 html.theme-light .theme-toggle button {
-  background: #f8f9fa;
-  border-color: #2f7a1f;
+  background: $light-button-bg;
+  border-color: $light-green-accent;
   box-shadow: none;
-  color: #2f7a1f;
+  color: $light-green-accent;
 }
 
 html.theme-light a {
-  color: #0550ae;
+  color: $light-link;
   text-shadow: none;
 }
 
 html.theme-light a:visited {
-  color: #6639ba;
+  color: $light-link-visited;
 }
 
 html.theme-light a:hover {
   text-decoration: underline;
 }
 
+html.theme-light a:focus,
+html.theme-light a:focus-visible {
+  outline-color: $light-link;
+}
+
+html.theme-light .theme-toggle button:focus,
+html.theme-light .theme-toggle button:focus-visible {
+  outline-color: $light-green-accent;
+}
+
 html.theme-light header h2 {
-  color: #57606a;
+  color: $light-header-secondary;
 }
 
 
 html.theme-light h1, html.theme-light h2, html.theme-light h3,
 html.theme-light h4, html.theme-light h5, html.theme-light h6 {
   text-shadow: none;
-  color: #2f7a1f;
+  color: $light-green-accent;
 }
 
 html.theme-light pre {
-  background: #eef2f6;
-  border-color: #d0d7de;
-  color: #24292f;
+  background: $light-code-bg;
+  border-color: $light-border;
+  color: $light-code-text;
 }
 
 html.theme-light code.highlighter-rouge {
-  background: #eef2f6;
-  border-color: #d0d7de;
-  color: #0a3069;
+  background: $light-code-bg;
+  border-color: $light-border;
+  color: $light-code-inline;
 }
 
 html.theme-light blockquote {
-  color: #424a53;
-  border-left-color: #d0d7de;
+  color: $light-blockquote;
+  border-left-color: $light-border;
 }
 
 html.theme-light th {
-  border-bottom-color: #2f7a1f;
+  border-bottom-color: $light-green-accent;
 }
 
 html.theme-light hr {
-  border-bottom-color: #d0d7de;
-  color: #d0d7de;
+  border-bottom-color: $light-border;
+  color: $light-border;
 }
 
 /* Rouge (syntax highlight) overrides for light mode */
 html.theme-light .highlight {
-  color: #24292f;
+  color: $light-code-text;
 }
 
 html.theme-light .highlight .c,
@@ -392,7 +374,7 @@ html.theme-light .highlight .cd,
 html.theme-light .highlight .cm,
 html.theme-light .highlight .c1,
 html.theme-light .highlight .cs {
-  color: #6e7781;
+  color: $light-comment;
 }
 
 html.theme-light .highlight .k,
@@ -405,7 +387,7 @@ html.theme-light .highlight .kt,
 html.theme-light .highlight .kd,
 html.theme-light .highlight .o,
 html.theme-light .highlight .ow {
-  color: #cf222e;
+  color: $light-keyword;
 }
 
 html.theme-light .highlight .s,
@@ -420,14 +402,14 @@ html.theme-light .highlight .sr,
 html.theme-light .highlight .si,
 html.theme-light .highlight .se,
 html.theme-light .highlight .ss {
-  color: #0a3069;
+  color: $light-code-inline;
 }
 
 html.theme-light .highlight .nt,
 html.theme-light .highlight .nn,
 html.theme-light .highlight .nc,
 html.theme-light .highlight .no {
-  color: #116329;
+  color: $light-tag;
 }
 
 html.theme-light .highlight .na,
@@ -439,12 +421,12 @@ html.theme-light .highlight .il,
 html.theme-light .highlight .mo,
 html.theme-light .highlight .mb,
 html.theme-light .highlight .mx {
-  color: #0550ae;
+  color: $light-link;
 }
 
 html.theme-light .highlight .err {
-  color: #b31d28;
-  background-color: #ffebe9;
+  color: $light-error;
+  background-color: $light-error-bg;
 }
 
 /* Responsiveness */
