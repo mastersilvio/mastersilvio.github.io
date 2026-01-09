@@ -7,6 +7,7 @@ gem 'jekyll-paginate'
 gem 'jekyll-sitemap'
 gem 'kramdown-parser-gfm'
 gem 'webrick'
+gem 'csv'
 
 group :jekyll_plugins do
   gem 'jekyll-feed'

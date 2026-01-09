@@ -29,6 +29,9 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
+# Encoding
+encoding: utf-8
+
 # SASS/SCSS configuration
 sass:
   style: compressed
