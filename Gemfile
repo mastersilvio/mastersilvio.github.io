@@ -8,6 +8,7 @@ gem 'jekyll-sitemap'
 gem 'kramdown-parser-gfm'
 gem 'webrick'
 gem 'csv'
+gem 'faraday-retry'
 
 group :jekyll_plugins do
   gem 'jekyll-feed'
