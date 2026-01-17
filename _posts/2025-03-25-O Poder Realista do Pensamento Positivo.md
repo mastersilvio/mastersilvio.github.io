@@ -2,6 +2,8 @@
 title: 'O Poder Realista do Pensamento Positivo'
 published: true
 tags: [Pensamentos, Psicologia, Desenvolvimento Pessoal]
+lang: pt
+translation_key: realistic-positive-thinking
 ---
 
 > “O que você pensa determina a qualidade da sua mente.

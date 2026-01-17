@@ -2,6 +2,8 @@
 title: 'Por que eu decidi escrever'
 published: true
 tags: [Tecnologia, Escrita]
+lang: pt
+translation_key: why-i-decided-to-write
 ---
 
 Eu decidi escrever porque quero organizar as minhas ideias e compartilhar um pouco sobre a minha vida pessoal e profissional.

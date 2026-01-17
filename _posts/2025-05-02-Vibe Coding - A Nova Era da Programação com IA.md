@@ -2,6 +2,8 @@
 title: 'Vibe Coding - A Nova Era da Programação com IA'
 published: true
 tags: [Tecnologia, IA, Desenvolvimento]
+lang: pt
+translation_key: vibe-coding
 ---
 
 <div class="lang-pt" markdown="1">

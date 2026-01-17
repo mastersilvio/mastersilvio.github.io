@@ -3,7 +3,7 @@ title: 'One More Sample Page'
 published: false
 tags: [Sample]
 lang: en
-translation_key: one-more-sample-page
+translation_key: one-more-sample
 permalink: /en/one-more-sample-page
 ---
 

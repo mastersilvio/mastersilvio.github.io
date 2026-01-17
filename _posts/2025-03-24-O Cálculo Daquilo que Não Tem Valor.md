@@ -2,6 +2,8 @@
 title: 'O Cálculo Daquilo que Não Tem Valor'
 published: true
 tags: [Pensamentos, Filosofia, Matemática]
+lang: pt
+translation_key: calculation-no-value
 ---
 
 Sempre fui uma pessoa que ama calcular.

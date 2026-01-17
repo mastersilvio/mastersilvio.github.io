@@ -15,6 +15,19 @@
 
   <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" /> {% seo %}
 
+  <!-- Language alternates for SEO -->
+  {% if page.translation_key %}
+    {% if page.lang == 'pt' %}
+      <link rel="alternate" hreflang="en" href="{{ page.url | replace: '/', '/en/' | prepend: site.baseurl | prepend: site.url }}" />
+      <link rel="alternate" hreflang="pt" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />
+      <link rel="alternate" hreflang="x-default" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />
+    {% elsif page.lang == 'en' %}
+      <link rel="alternate" hreflang="pt" href="{{ page.url | replace: '/en/', '/' | prepend: site.baseurl | prepend: site.url }}" />
+      <link rel="alternate" hreflang="en" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />
+      <link rel="alternate" hreflang="x-default" href="{{ page.url | replace: '/en/', '/' | prepend: site.baseurl | prepend: site.url }}" />
+    {% endif %}
+  {% endif %}
+
   <!-- Register Service Worker for PWA support -->
   <script src="{{ "/js/sw-register.js" | prepend: site.baseurl | replace: '//', '/' }}" defer></script>
 

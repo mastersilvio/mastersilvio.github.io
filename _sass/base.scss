@@ -139,6 +139,41 @@ header h2 {
   outline-offset: 2px;
 }
 
+/* Language toggle */
+.language-toggle {
+  position: static;
+}
+
+.language-toggle button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px dashed $conifer;
+  border-radius: 999px;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(181, 232, 83, 0.25);
+  color: $conifer;
+  font-size: 18px;
+}
+
+.language-toggle button:focus {
+  outline: 2px solid $conifer;
+  outline-offset: 2px;
+}
+
+.language-toggle button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.language-toggle button:focus-visible {
+  outline: 2px solid $conifer;
+  outline-offset: 2px;
+}
+
 /* Main Content
 */
 
@@ -304,6 +339,13 @@ html.theme-light .theme-toggle button {
   color: $light-green-accent;
 }
 
+html.theme-light .language-toggle button {
+  background: $light-button-bg;
+  border-color: $light-green-accent;
+  box-shadow: none;
+  color: $light-green-accent;
+}
+
 html.theme-light a {
   color: $light-link;
   text-shadow: none;
@@ -324,6 +366,11 @@ html.theme-light a:focus-visible {
 
 html.theme-light .theme-toggle button:focus,
 html.theme-light .theme-toggle button:focus-visible {
+  outline-color: $light-green-accent;
+}
+
+html.theme-light .language-toggle button:focus,
+html.theme-light .language-toggle button:focus-visible {
   outline-color: $light-green-accent;
 }
 

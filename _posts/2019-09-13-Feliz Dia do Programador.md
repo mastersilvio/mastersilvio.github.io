@@ -2,6 +2,8 @@
 title: 'Feliz Dia do Programador'
 published: true
 tags: [Tecnologia]
+lang: pt
+translation_key: programmers-day
 ---
 
 O Dia do Programador é um feriado celebrado no 256º dia do ano, esse dia cai no dia 12 de setembro nos anos bissextos e 13 de setembro nos outros. Mas por que 256?

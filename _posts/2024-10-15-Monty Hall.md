@@ -2,6 +2,7 @@
 title: 'Monty Hall'
 published: false
 tags: [Tecnologia, Probabilidade, Matemática]
+lang: pt
 translation_key: monty-hall
 ---
 

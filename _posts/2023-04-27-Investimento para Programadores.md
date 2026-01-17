@@ -2,7 +2,8 @@
 title: 'Investimento para Programadores:  como estudar, crescer na carreira e investir com foco no longo prazo'
 published: true
 tags: [Investimento, Finanças, Carreira]
-translation_key: investment-for-programmers
+lang: pt
+translation_key: investment-programmers
 ---
 
 <div class="lang-pt">

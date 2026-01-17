@@ -2,6 +2,7 @@
 title: 'Sample Page'
 published: false
 tags: [Sample]
+lang: pt
 translation_key: sample-page
 ---
 

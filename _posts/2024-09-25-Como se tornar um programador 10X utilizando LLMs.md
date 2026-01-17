@@ -2,6 +2,8 @@
 title: 'Como se tornar um programador 10X utilizando LLMs'
 published: true
 tags: [Tecnologia, IA, Desenvolvimento]
+lang: pt
+translation_key: 10x-programmer-llms
 ---
 
 ### A Evolução do Programador

@@ -11,6 +11,9 @@
         {% include links.html %}
       </div>
       <div class="toggles">
+        <div class="language-toggle">
+          <button id="language-button" aria-label="Switch to English" title="Switch to English">🇺🇸</button>
+        </div>
         <div class="theme-toggle">
           <button id="theme-button" aria-label="Alternar tema" title="Alternar tema">🌙</button>
         </div>
@@ -18,5 +21,6 @@
     </div>
 
     <script src="{{ "/js/theme-toggle.js" | prepend: site.baseurl | replace: '//', '/' }}" defer></script>
+    <script src="{{ "/js/language-switcher.js" | prepend: site.baseurl | replace: '//', '/' }}" defer></script>
   </div>
 </header>

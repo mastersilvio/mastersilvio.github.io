@@ -2,6 +2,8 @@
 title: 'Sabedoria Japonesa para uma Vida Plena'
 published: true
 tags: [Filosofia, Japão, Sabedoria]
+lang: pt
+translation_key: japanese-wisdom
 ---
 
 No coração da filosofia japonesa, existem conceitos que oferecem uma profunda orientação para viver uma vida plena e satisfatória. *Ikigai*, *Kaizen*, *Hara Hachi Bu*, *Shoshin* e *Wabi-sabi* são algumas dessas joias que, quando entrelaçadas, formam um tecido de práticas e visões de mundo que podem enriquecer nosso cotidiano.
