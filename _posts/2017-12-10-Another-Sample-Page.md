@@ -2,7 +2,8 @@
 title: 'Another Sample Page'
 published: false
 tags: [Sample]
-translation_key: another-sample-page
+lang: pt
+translation_key: another-sample
 ---
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.

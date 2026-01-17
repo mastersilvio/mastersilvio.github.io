@@ -2,6 +2,8 @@
 title: 'Aproveite a Vida'
 published: true
 tags: [Filosofia, Estoicismo]
+lang: pt
+translation_key: enjoy-life
 ---
 
 O que é viver?

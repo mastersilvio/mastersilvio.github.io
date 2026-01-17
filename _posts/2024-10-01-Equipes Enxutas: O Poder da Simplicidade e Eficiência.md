@@ -2,6 +2,8 @@
 title: 'Equipes Enxutas: O Poder da Simplicidade e Eficiência'
 published: true
 tags: [Tecnologia, Gestão]
+lang: pt
+translation_key: lean-teams
 ---
 Em um mundo onde eficiência é uma das principais moedas de sucesso, muitas empresas têm optado por operar com equipes enxutas, mantendo o foco na simplicidade e eficácia. Este modelo, longe de ser um sinal de falta de recursos, tornou-se uma estratégia comprovada para criar produtos e serviços que realmente geram valor. Vamos explorar o conceito e analisar exemplos de empresas que prosperam com pequenas equipes.
 

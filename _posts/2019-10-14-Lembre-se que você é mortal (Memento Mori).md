@@ -2,6 +2,8 @@
 title: 'Lembre-se que você é mortal (Memento Mori)'
 published: true
 tags: [Filosofia]
+lang: pt
+translation_key: memento-mori
 ---
 
 É difícil pensar que um dia iremos morrer. É difícil viver pensando que um dia não estaremos mais aqui.

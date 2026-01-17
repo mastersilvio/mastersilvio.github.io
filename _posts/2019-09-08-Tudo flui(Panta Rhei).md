@@ -2,6 +2,8 @@
 title: Tudo flui (Panta Rhei)
 published: true
 tag: Filosofia
+lang: pt
+translation_key: everything-flows
 ---
 
 Ninguém entra no mesmo rio uma segunda vez, pois quando isso acontece, já não se é o mesmo, assim como as águas que já serão outras.

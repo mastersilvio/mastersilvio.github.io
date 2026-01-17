@@ -2,6 +2,8 @@
 title: 'Eat the Frog First: Como Priorizar as Tarefas Mais Desafiadoras'
 published: true
 tags: [Tecnologia, Gestão, Produtividade]
+lang: pt
+translation_key: eat-the-frog-first
 ---
 
 Todos nós enfrentamos aquela sensação de sobrecarga ao iniciar o dia de trabalho, com uma lista de tarefas que parece interminável. No entanto, existe uma técnica simples que pode mudar completamente a forma como enfrentamos nossos desafios diários: o conceito "Eat the Frog First".

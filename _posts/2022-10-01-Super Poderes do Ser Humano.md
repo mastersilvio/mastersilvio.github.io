@@ -2,6 +2,8 @@
 title: 'Super Poderes do Ser Humano: As Capacidades Extraordinárias Dentro de Cada Um de Nós'
 published: true
 tags: [Filosofia, Desenvolvimento Pessoal]
+lang: pt
+translation_key: human-superpowers
 ---
 
 O conceito de superpoderes muitas vezes remete a seres extraordinários com habilidades sobre-humanas. Porém, nós, seres humanos, possuímos nossos próprios superpoderes que, embora mais sutis que voar ou invisibilidade, têm um impacto transformador em nossas vidas. Vamos explorar essas capacidades incríveis que todos podemos desenvolver.

@@ -54,21 +54,51 @@
     button.setAttribute('title', targetLang === 'en' ? 'Switch to English' : 'Mudar para Português');
   }
 
-  // Initialize button with correct flag
-  updateButton();
-
-  button.addEventListener('click', function(){
-    var targetLang = currentLang === 'pt' ? 'en' : 'pt';
-    var alternateUrl = getAlternateUrl(currentLang, translationKey);
-
-    // Save language preference
-    try {
-      localStorage.setItem('lang', targetLang);
-    } catch (e) {
-      console.error('Error saving language preference:', e);
+  // Check if translation exists for posts
+  function checkTranslationExists(callback) {
+    // For main pages (home, about, archive, tags), always show button
+    if (translationKey && urlMappings[translationKey]) {
+      callback(true);
+      return;
     }
 
-    // Navigate to alternate language version
-    window.location.href = alternateUrl;
+    // For posts, check if translation actually exists
+    var alternateUrl = getAlternateUrl(currentLang, translationKey);
+
+    // Use fetch with HEAD method to check if page exists
+    fetch(alternateUrl, { method: 'HEAD' })
+      .then(function(response) {
+        callback(response.ok); // true if 200, false if 404
+      })
+      .catch(function() {
+        callback(false); // On error, assume translation doesn't exist
+      });
+  }
+
+  // Initialize button and check if translation exists
+  checkTranslationExists(function(translationExists) {
+    if (!translationExists) {
+      // Hide language button if translation doesn't exist
+      button.style.display = 'none';
+      return;
+    }
+
+    // Show button and set up click handler
+    updateButton();
+
+    button.addEventListener('click', function(){
+      var targetLang = currentLang === 'pt' ? 'en' : 'pt';
+      var alternateUrl = getAlternateUrl(currentLang, translationKey);
+
+      // Save language preference
+      try {
+        localStorage.setItem('lang', targetLang);
+      } catch (e) {
+        console.error('Error saving language preference:', e);
+      }
+
+      // Navigate to alternate language version
+      window.location.href = alternateUrl;
+    });
   });
 })();

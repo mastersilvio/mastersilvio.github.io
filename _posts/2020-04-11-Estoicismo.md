@@ -2,6 +2,8 @@
 title: 'Estoicismo'
 published: true
 tags: [Filosofia, Estoicismo]
+lang: pt
+translation_key: stoicism
 ---
 
 Uma das coisas mais difíceis da vida é saber lidar com as nossas emoções e nos manter calmos e sob controle em situações adversas e muita pressão.

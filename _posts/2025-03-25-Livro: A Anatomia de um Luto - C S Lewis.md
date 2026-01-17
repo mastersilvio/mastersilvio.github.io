@@ -2,6 +2,8 @@
 title: 'Livro: A Anatomia de um Luto - C S Lewis'
 published: true
 tags: [Livros]
+lang: pt
+translation_key: grief-observed
 ---
 
 ### Review e considerações sobre o momento da leitura do livro
