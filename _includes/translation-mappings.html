@@ -21,11 +21,10 @@
     'tags': {
       'pt': '{{ "/tags/" | relative_url }}',
       'en': '{{ "/en/tags/" | relative_url }}'
-    }{% assign all_posts = site.posts %}{% for post in all_posts %}{% if post.translation_key %},
+    }{% comment %} Build a hash of translation keys to collect PT and EN URLs {% endcomment %}{% assign translation_map = "" | split: "" %}{% assign processed_keys = "" | split: "" %}{% for post in site.posts %}{% if post.translation_key %}{% unless processed_keys contains post.translation_key %}{% assign processed_keys = processed_keys | push: post.translation_key %}{% assign pt_post = site.posts | where: 'translation_key', post.translation_key | where: 'lang', 'pt' | first %}{% assign en_post = site.posts | where: 'translation_key', post.translation_key | where: 'lang', 'en' | first %}{% if pt_post or en_post %},
     '{{ post.translation_key }}': {
-      {% if post.lang == 'pt' %}'pt': '{{ post.url | relative_url }}'{% assign en_post = all_posts | where: 'translation_key', post.translation_key | where: 'lang', 'en' | first %}{% if en_post %},
-      'en': '{{ en_post.url | relative_url }}'{% endif %}{% else %}'en': '{{ post.url | relative_url }}'{% assign pt_post = all_posts | where: 'translation_key', post.translation_key | where: 'lang', 'pt' | first %}{% if pt_post %},
-      'pt': '{{ pt_post.url | relative_url }}'{% endif %}{% endif %}
-    }{% endif %}{% endfor %}
+      {% if pt_post %}'pt': '{{ pt_post.url | relative_url }}'{% endif %}{% if pt_post and en_post %},
+      {% endif %}{% if en_post %}'en': '{{ en_post.url | relative_url }}'{% endif %}
+    }{% endif %}{% endunless %}{% endif %}{% endfor %}
   };
 </script>
