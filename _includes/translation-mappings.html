@@ -1,0 +1,31 @@
+---
+# This file generates a JavaScript object mapping translation keys to URLs
+# It's included in the head to provide URL mappings for the language switcher
+---
+<script>
+  // Translation key to URL mappings for all posts and pages
+  window.translationMappings = {
+    {% comment %} Main pages {% endcomment %}
+    'home': {
+      'pt': '{{ "/" | relative_url }}',
+      'en': '{{ "/en/" | relative_url }}'
+    },
+    'about': {
+      'pt': '{{ "/about/" | relative_url }}',
+      'en': '{{ "/en/about/" | relative_url }}'
+    },
+    'archive': {
+      'pt': '{{ "/archive/" | relative_url }}',
+      'en': '{{ "/en/archive/" | relative_url }}'
+    },
+    'tags': {
+      'pt': '{{ "/tags/" | relative_url }}',
+      'en': '{{ "/en/tags/" | relative_url }}'
+    }{% assign all_posts = site.posts %}{% for post in all_posts %}{% if post.translation_key %},
+    '{{ post.translation_key }}': {
+      {% if post.lang == 'pt' %}'pt': '{{ post.url | relative_url }}'{% assign en_post = all_posts | where: 'translation_key', post.translation_key | where: 'lang', 'en' | first %}{% if en_post %},
+      'en': '{{ en_post.url | relative_url }}'{% endif %}{% else %}'en': '{{ post.url | relative_url }}'{% assign pt_post = all_posts | where: 'translation_key', post.translation_key | where: 'lang', 'pt' | first %}{% if pt_post %},
+      'pt': '{{ pt_post.url | relative_url }}'{% endif %}{% endif %}
+    }{% endif %}{% endfor %}
+  };
+</script>
