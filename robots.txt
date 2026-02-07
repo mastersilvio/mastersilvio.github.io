@@ -1,8 +1,0 @@
-# robots.txt for https://silviomeireles.dev
-
-User-agent: *
-Allow: /
-Disallow: /contact.html
-
-# Sitemap location
-Sitemap: https://silviomeireles.dev/sitemap.xml
