@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Sobre" description="Sobre Sílvio Meireles" lang="pt">
+  <article class="about">
+    <h1>Sobre</h1>
+
+    <div class="profile">
+      <img src="/silviomeireles.jpg" alt="Sílvio Meireles" width="150" height="150" />
+      <div class="social-links">
+        <a href="https://github.com/mastersilvio" target="_blank" rel="noopener">Github</a>
+        <a href="https://www.linkedin.com/in/mastersilvio/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/silviojmeireles" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://bulletrails.com.br/" target="_blank" rel="noopener">Podcast</a>
+      </div>
+    </div>
+
+    <p>Sou Bacharel em Sistemas de Informação, apaixonado desde cedo por Matemática e Programação.</p>
+
+    <p>Minha trajetória sempre esteve ligada à resolução de problemas complexos, uso de algoritmos, pensamento lógico e tomada de decisão orientada a dados. Já atuei como professor de Matemática e Robótica, experiência que reforçou minha base em lógica, sistemas, automação e ensino técnico.</p>
+
+    <p>Atualmente, estou me especializando como Machine Learning Engineer, aprofundando meus conhecimentos em modelagem, dados, automação inteligente e construção de sistemas que aprendem e evoluem com o tempo.</p>
+
+    <p>Tenho perfil empreendedor, gosto de transformar problemas reais em soluções práticas, criar produtos, estruturar processos e construir tecnologia com impacto concreto no negócio e na vida das pessoas. Transito bem entre engenharia, dados, produto e operação — da ideia ao algoritmo, do experimento ao resultado.</p>
+
+    <p>Sou autodidata, movido por curiosidade, aprendizado contínuo e pela busca constante de evolução, mudanças e novos desafios.</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .about h1 {
+    margin-top: 0;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .profile img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-links a {
+    font-weight: 500;
+  }
+</style>
