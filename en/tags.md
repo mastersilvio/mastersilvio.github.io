@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Tags
 permalink: /en/tags/
 lang: en
 translation_key: tags

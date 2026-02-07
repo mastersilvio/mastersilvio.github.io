@@ -1,10 +1,12 @@
 // Initialize language preference
+// data-lang reflects the actual page language set by Jekyll.
+// We do NOT override it with localStorage to avoid confusing the language switcher.
 (function(){
   try {
-    var storedLang = localStorage.getItem('lang');
-    var defaultLang = document.documentElement.getAttribute('data-lang') || 'pt';
-    var lang = (storedLang === 'pt' || storedLang === 'en') ? storedLang : defaultLang;
-    document.documentElement.setAttribute('data-lang', lang);
+    var pageLang = document.documentElement.getAttribute('data-lang') || 'pt';
+    if (pageLang !== 'pt' && pageLang !== 'en') {
+      document.documentElement.setAttribute('data-lang', 'pt');
+    }
   } catch (e) {
     console.error('Error setting language:', e);
   }

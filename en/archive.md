@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Archive
 lang: en
 translation_key: archive
 permalink: /en/archive/
