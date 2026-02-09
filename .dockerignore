@@ -1,0 +1,9 @@
+node_modules
+dist
+.astro
+.git
+old
+.DS_Store
+*.log
+src_backup
+public_backup
