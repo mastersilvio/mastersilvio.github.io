@@ -1,144 +1,319 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
-:root {
-  --color-bg: #fdfdfd;
-  --color-bg-secondary: #f4f4f5;
-  --color-text: #18181b;
-  --color-text-secondary: #52525b;
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-border: #e4e4e7;
-  --color-tag-bg: #eff6ff;
-  --color-tag-text: #1d4ed8;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --max-width: 720px;
+/* Initial typography improvements to reduce chains */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/outfit/files/outfit-latin-400-normal.woff2') format('woff2');
 }
-
-[data-theme="dark"] {
-  --color-bg: #0f0f0f;
-  --color-bg-secondary: #1a1a1a;
-  --color-text: #e4e4e7;
-  --color-text-secondary: #a1a1aa;
-  --color-accent: #60a5fa;
-  --color-accent-hover: #93bbfd;
-  --color-border: #27272a;
-  --color-tag-bg: #1e293b;
-  --color-tag-text: #93c5fd;
-}
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-family: var(--font-sans);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  scroll-behavior: smooth;
-}
-
-body {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1.5rem;
-  line-height: 1.7;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--color-accent-hover);
-  text-decoration: underline;
-}
-
-h1, h2, h3, h4 {
-  line-height: 1.3;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-display: swap;
   font-weight: 700;
-  color: var(--color-text);
+  src: url('@fontsource/outfit/files/outfit-latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-standard-normal.woff2') format('woff2');
 }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
+@theme {
+  /* 1. Core Colors */
+  --color-background: #ffffff;
+  --color-foreground: #09090b;
 
-p {
-  margin-bottom: 1rem;
+  --color-card: #ffffff;
+  --color-card-foreground: #09090b;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #09090b;
+
+  --color-primary: #18181b;
+  --color-primary-foreground: #fafafa;
+
+  --color-secondary: #f4f4f5;
+  --color-secondary-foreground: #18181b;
+
+  --color-muted: #f4f4f5;
+  --color-muted-foreground: #18181b; /* Zinc 900 for absolute contrast compliance */
+
+  --color-accent: #f4f4f5;
+  --color-accent-foreground: #18181b;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: #e4e4e7;
+  --color-input: #e4e4e7;
+  --color-ring: #18181b;
+
+  /* 2. Constants */
+  --font-sans: 'Outfit', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --radius-lg: 0.75rem;
+  --radius-md: calc(0.75rem - 2px);
+  --radius-sm: calc(0.75rem - 4px);
+
+  /* 3. Responsive Scaling (4K & Mobile Optimization) */
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
 }
 
-ul, ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
+@layer base {
+  .dark {
+    --color-background: #212737;
+    --color-foreground: #eaedf3;
+    --color-card: #303446; /* Catppuccin Frappe Base */
+    --color-card-foreground: #eaedf3;
+    --color-popover: #303446;
+    --color-popover-foreground: #eaedf3;
+    --color-primary: #f2d5cf; /* Lighter accent for Catppuccin harmony */
+    --color-primary-foreground: #303446;
+    --color-secondary: #292c3c; /* Mantle */
+    --color-secondary-foreground: #eaedf3;
+    --color-muted: #303446;
+    --color-muted-foreground: #d1d5dc;
+    --color-accent: #292c3c;
+    --color-accent-foreground: #eaedf3;
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #fafafa;
+    --color-border: #494d64; /* Surface 1 */
+    --color-input: #494d64;
+    --color-ring: #f2d5cf;
+  }
+
+  /* Fluid Typography & Scaling */
+  html {
+    color-scheme: light;
+    /* Base font size scales between 16px on mobile and 18px on 4K */
+    font-size: clamp(16px, 0.5vw + 14px, 20px);
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  @media (min-width: 2560px) {
+    html {
+      font-size: 22px; /* Extra boost for 4K */
+    }
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  *::selection {
+    background-color: var(--color-primary) !important;
+    color: var(--color-primary-foreground) !important;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight font-black;
+    line-height: 1.1;
+  }
+
+  a {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover {
+    color: var(--color-primary);
+  }
+
+  input,
+  textarea,
+  select {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border-color: var(--color-border);
+  }
+
+  input::placeholder {
+    color: var(--color-muted-foreground);
+    opacity: 0.5;
+  }
 }
 
-li {
-  margin-bottom: 0.25rem;
+@layer utilities {
+  .text-main {
+    color: var(--color-foreground);
+  }
+  .text-muted {
+    color: var(--color-muted-foreground);
+  }
+  .bg-main {
+    background-color: var(--color-background);
+  }
+  .border-main {
+    border-color: var(--color-border);
+  }
+
+  .no-underline {
+    text-decoration: none !important;
+  }
+
+  /* Fluid Container Padding */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12 3xl:px-24;
+  }
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+/* Typography Overrides */
+.prose {
+  --tw-prose-body: var(--color-foreground);
+  --tw-prose-headings: var(--color-foreground);
+  --tw-prose-links: var(--color-foreground);
+  --tw-prose-bold: var(--color-foreground);
+  --tw-prose-counters: var(--color-muted-foreground);
+  --tw-prose-bullets: var(--color-border);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-quotes: var(--color-foreground);
+  --tw-prose-quote-borders: var(--color-border);
+  --tw-prose-captions: var(--color-muted-foreground);
+  --tw-prose-code: var(--color-foreground);
+  --tw-prose-pre-bg: #f8fafc; /* Subtle off-white for light mode */
+
+  font-size: 1.05rem;
+  line-height: 1.75;
 }
 
-code {
-  font-family: var(--font-mono);
+/* Inline code styling */
+.prose code {
+  @apply rounded px-1.5 py-0.5 font-medium font-mono border whitespace-pre-wrap;
   font-size: 0.875em;
-  background: var(--color-bg-secondary);
-  padding: 0.15em 0.4em;
-  border-radius: 4px;
+  background-color: var(--color-secondary);
+  border-color: var(--color-border);
+  color: var(--color-foreground) !important;
 }
 
-pre {
-  background: var(--color-bg-secondary);
-  padding: 1rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--color-border);
+.prose code::before,
+.prose code::after {
+  content: none !important;
 }
 
-pre code {
-  background: none;
-  padding: 0;
+/* Reset for code blocks */
+.prose pre code,
+.prose .astro-code code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  color: inherit !important;
+  font-weight: inherit !important;
+  white-space: inherit !important;
 }
 
-blockquote {
-  border-left: 3px solid var(--color-accent);
-  padding-left: 1rem;
-  margin: 1.5rem 0;
-  color: var(--color-text-secondary);
-  font-style: italic;
+.prose pre,
+.prose .astro-code {
+  margin-top: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+  padding: 1.5rem !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  /* Shiki will provide the background via --shiki-light-bg/--shiki-dark-bg */
 }
 
-hr {
-  border: none;
-  border-top: 1px solid var(--color-border);
-  margin: 2rem 0;
+/* Ensure syntax colors switch correctly with the .dark class */
+.shiki span,
+.astro-code span {
+  color: var(--shiki-light);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5rem;
+.dark .shiki span,
+.dark .astro-code span {
+  color: var(--shiki-dark) !important;
 }
 
-th, td {
-  padding: 0.75rem;
-  border: 1px solid var(--color-border);
-  text-align: left;
+.shiki,
+.astro-code {
+  background-color: var(--shiki-light-bg) !important;
 }
 
-th {
-  background: var(--color-bg-secondary);
-  font-weight: 600;
+.dark .shiki,
+.dark .astro-code {
+  background-color: var(--shiki-dark-bg) !important;
+  border-color: #494d64 !important; /* Catppuccin Surface 1 */
+}
+
+.dark .prose {
+  --tw-prose-body: #d1d5dc;
+  --tw-prose-headings: #eaedf3;
+  --tw-prose-pre-bg: var(--shiki-dark-bg);
+  --tw-prose-links: var(--color-foreground);
+}
+
+/* Heading anchor links */
+.heading-link {
+  opacity: 0;
+  margin-left: -1.5rem;
+  padding-right: 0.5rem;
+  color: var(--color-muted-foreground);
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity 0.2s ease;
+}
+
+h1:hover .heading-link,
+h2:hover .heading-link,
+h3:hover .heading-link,
+h4:hover .heading-link,
+h5:hover .heading-link,
+h6:hover .heading-link {
+  opacity: 1;
+}
+
+.heading-link:hover {
+  color: var(--color-primary);
+}
+
+/* Language Filter: hide posts that don't match the selected language */
+html[data-filter-lang='pt'] [data-post-lang='en'] {
+  display: none !important;
+}
+
+html[data-filter-lang='en'] [data-post-lang='pt'] {
+  display: none !important;
+}
+
+/* Hide year sections that have no visible posts after filtering */
+html[data-filter-lang='pt'] [data-year-section]:not(:has([data-post-lang='pt'])) {
+  display: none !important;
+}
+
+html[data-filter-lang='en'] [data-year-section]:not(:has([data-post-lang='en'])) {
+  display: none !important;
+}
+
+/* Hide home sections that have no visible posts after filtering */
+html[data-filter-lang='pt'] [data-posts-section]:not(:has([data-post-lang='pt'])) {
+  display: none !important;
+}
+
+html[data-filter-lang='en'] [data-posts-section]:not(:has([data-post-lang='en'])) {
+  display: none !important;
 }

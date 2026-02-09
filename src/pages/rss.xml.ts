@@ -1,24 +1,29 @@
-import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
-import type { APIContext } from "astro";
+import rss from '@astrojs/rss';
+import type { CollectionEntry } from 'astro:content';
+import { SITE } from '@/config';
+import type { APIContext } from 'astro';
+import { getPublishedPosts, getPostSlug } from '@/lib/utils/posts';
 
 export async function GET(context: APIContext) {
-  const posts = (await getCollection("blog"))
-    .filter((post) => post.data.published)
-    .sort((a, b) => {
-      const dateA = a.data.date ?? new Date(0);
-      const dateB = b.data.date ?? new Date(0);
-      return dateB.getTime() - dateA.getTime();
-    });
+  const posts = await getPublishedPosts();
+
+  // Sort posts by date (newest first)
+  const sortedPosts = posts.sort(
+    (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
 
   return rss({
-    title: "Sílvio Meireles",
-    description: "Personal Blog by Sílvio Meireles",
-    site: context.site!,
-    items: posts.map((post) => ({
+    title: SITE.title,
+    description: SITE.desc,
+    site: context.site || SITE.website,
+    items: sortedPosts.map((post: CollectionEntry<'posts'>) => ({
       title: post.data.title,
-      pubDate: post.data.date,
-      link: `/${post.id}/`,
+      pubDate: post.data.pubDate,
+      description: post.data.description,
+      link: `/posts/${getPostSlug(post)}/`,
+      categories: post.data.tags,
     })),
+    customData: `<language>en-us</language>`,
   });
 }
