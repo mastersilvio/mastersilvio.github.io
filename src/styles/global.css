@@ -292,11 +292,18 @@ h6:hover .heading-link {
 }
 
 /* Language Filter: hide posts that don't match the selected language */
-html[data-filter-lang='pt'] [data-post-lang='en'] {
+html[data-filter-lang='pt'] [data-post-lang='en'],
+html[data-filter-lang='pt'] [data-post-lang='es'] {
   display: none !important;
 }
 
-html[data-filter-lang='en'] [data-post-lang='pt'] {
+html[data-filter-lang='en'] [data-post-lang='pt'],
+html[data-filter-lang='en'] [data-post-lang='es'] {
+  display: none !important;
+}
+
+html[data-filter-lang='es'] [data-post-lang='pt'],
+html[data-filter-lang='es'] [data-post-lang='en'] {
   display: none !important;
 }
 
@@ -309,11 +316,40 @@ html[data-filter-lang='en'] [data-year-section]:not(:has([data-post-lang='en']))
   display: none !important;
 }
 
+html[data-filter-lang='es'] [data-year-section]:not(:has([data-post-lang='es'])) {
+  display: none !important;
+}
+
 /* Hide home sections that have no visible posts after filtering */
 html[data-filter-lang='pt'] [data-posts-section]:not(:has([data-post-lang='pt'])) {
   display: none !important;
 }
 
 html[data-filter-lang='en'] [data-posts-section]:not(:has([data-post-lang='en'])) {
+  display: none !important;
+}
+
+html[data-filter-lang='es'] [data-posts-section]:not(:has([data-post-lang='es'])) {
+  display: none !important;
+}
+
+/* i18n labels and static content: default (no filter) shows PT */
+html:not([data-filter-lang]) [data-i18n='en'],
+html:not([data-filter-lang]) [data-i18n='es'] {
+  display: none !important;
+}
+
+html[data-filter-lang='pt'] [data-i18n='en'],
+html[data-filter-lang='pt'] [data-i18n='es'] {
+  display: none !important;
+}
+
+html[data-filter-lang='en'] [data-i18n='pt'],
+html[data-filter-lang='en'] [data-i18n='es'] {
+  display: none !important;
+}
+
+html[data-filter-lang='es'] [data-i18n='pt'],
+html[data-filter-lang='es'] [data-i18n='en'] {
   display: none !important;
 }

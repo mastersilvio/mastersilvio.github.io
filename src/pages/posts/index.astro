@@ -6,6 +6,7 @@ import { getReadTime } from '@/lib/utils/readTime';
 import { getPublishedPosts, getPostSlug } from '@/lib/utils/posts';
 import { SITE } from '@/config';
 import { getBreadcrumbSchema } from '@/lib/schemas';
+import I18nLabel from '@/components/I18nLabel.astro';
 
 const schema = getBreadcrumbSchema([
   { name: 'Blog', url: new URL('/posts', Astro.site).toString() },
@@ -28,32 +29,26 @@ const groupedPosts = posts.reduce(
 
 const years = Object.keys(groupedPosts).sort((a, b) => b.localeCompare(a));
 
-// Get all tags with counts
-const tagCounts = posts.reduce(
-  (acc, post) => {
-    post.data.tags?.forEach((tag) => {
-      acc[tag] = (acc[tag] || 0) + 1;
-    });
-    return acc;
-  },
-  {} as Record<string, number>
-);
+// Get tags grouped by language
+type TagEntry = { tag: string; count: number; lang: string };
+const tagsByLang: TagEntry[] = [];
 
-// Sort tags by count (descending)
-const sortedTags = Object.entries(tagCounts)
-  .sort(([, a], [, b]) => b - a)
-  .slice(0, 20); // Top 20 tags
+for (const lang of ['pt', 'en', 'es']) {
+  const langPosts = posts.filter((p) => (p.data.lang || 'en') === lang);
+  const counts: Record<string, number> = {};
+  langPosts.forEach((p) => p.data.tags?.forEach((t) => { counts[t] = (counts[t] || 0) + 1; }));
+  Object.entries(counts)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 15)
+    .forEach(([tag, count]) => tagsByLang.push({ tag, count, lang }));
+}
 ---
 
 <Layout title="Blog" description={SITE.blogDescription} schema={schema}>
   <Breadcrumbs items={[{ name: 'Blog', href: '/posts' }]} />
 
   <div class="mb-10 sm:mb-12">
-    <h1
-      class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-[1.1]"
-    >
-      Publicações
-    </h1>
+    <I18nLabel k="allPosts" tag="h1" class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-[1.1]" />
     <p class="mt-3 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
       {SITE.blogDescription}
     </p>
@@ -90,16 +85,14 @@ const sortedTags = Object.entries(tagCounts)
     <!-- Sidebar: Tags -->
     <aside class="lg:w-64 flex-shrink-0">
       <div class="lg:sticky lg:top-24">
-        <!-- Tags Cloud -->
         <div class="p-5 rounded-xl bg-secondary/30 border border-border/50">
-          <h3 class="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
-            Tópicos Populares
-          </h3>
+          <I18nLabel k="popularTopics" tag="h3" class="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4" />
           <div class="flex flex-wrap gap-2">
             {
-              sortedTags.map(([tag, count]) => (
+              tagsByLang.map(({ tag, count, lang }) => (
                 <a
                   href={`/posts/tag/${tag}`}
+                  data-post-lang={lang}
                   class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium bg-background border border-border hover:bg-accent hover:border-primary/50 transition-all no-underline group"
                 >
                   <span class="text-foreground group-hover:text-primary transition-colors">

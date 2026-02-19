@@ -1,4 +1,4 @@
-export type Lang = 'all' | 'pt' | 'en';
+export type Lang = 'all' | 'pt' | 'en' | 'es';
 
 function createLangStore() {
   let lang = $state<Lang>('all');
@@ -12,10 +12,9 @@ function createLangStore() {
     }
   }
 
-  // Initialize from localStorage
   if (typeof window !== 'undefined') {
     const saved = localStorage.getItem('filter-lang') as Lang | null;
-    if (saved && ['all', 'pt', 'en'].includes(saved)) {
+    if (saved && ['all', 'pt', 'en', 'es'].includes(saved)) {
       lang = saved;
     }
     applyToDOM(lang);
@@ -32,6 +31,7 @@ function createLangStore() {
   function cycle() {
     if (lang === 'all') set('pt');
     else if (lang === 'pt') set('en');
+    else if (lang === 'en') set('es');
     else set('all');
   }
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { langFilter } from '@/lib/lang.svelte';
+  import { langFilter, type Lang } from '@/lib/lang.svelte';
   import { slide } from 'svelte/transition';
   import { onMount } from 'svelte';
 
@@ -14,7 +14,7 @@
     isOpen = false;
   }
 
-  function setLang(newLang: 'all' | 'pt' | 'en') {
+  function setLang(newLang: Lang) {
     langFilter.set(newLang);
     closeDropdown();
   }
@@ -36,6 +36,7 @@
     all: '🌐',
     pt: '🇧🇷',
     en: '🇺🇸',
+    es: '🇪🇸',
   };
 </script>
 
@@ -64,7 +65,7 @@
             : ''}"
         >
           <span class="mr-2 text-base">🌐</span>
-          Todos os idiomas
+          Todos / All / Todos
         </button>
         <button
           onclick={() => setLang('pt')}
@@ -85,6 +86,16 @@
         >
           <span class="mr-2 text-base">🇺🇸</span>
           English
+        </button>
+        <button
+          onclick={() => setLang('es')}
+          class="flex w-full items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground {langFilter.current ===
+          'es'
+            ? 'bg-accent'
+            : ''}"
+        >
+          <span class="mr-2 text-base">🇪🇸</span>
+          Español
         </button>
       </div>
     </div>

@@ -5,36 +5,43 @@ import { join } from 'path';
 
 const { enabled, filePath } = SITE.cta;
 
-let ctaHTML = '';
+function parseCta(markdown: string): string {
+  return markdown
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*?<\/li>\s*)+/gs, '<ul>$&</ul>')
+    .replace(/\n\n+/g, '</p><p>')
+    .replace(/^(?!<[hula])/gm, '<p>')
+    .replace(/(?!>)$/gm, '</p>')
+    .replace(/<p><\/p>/g, '')
+    .replace(/<p>(<[hula])/g, '$1')
+    .replace(/(<\/[hula][^>]*>)<\/p>/g, '$1');
+}
 
-if (enabled) {
+function loadCta(lang: string): string {
   try {
-    const fullPath = join(process.cwd(), filePath);
-    const markdown = readFileSync(fullPath, 'utf-8');
-
-    // Simple markdown to HTML conversion
-    ctaHTML = markdown
-      .replace(/^# (.+)$/gm, '<h1>$1</h1>')
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
-      .replace(/^- (.+)$/gm, '<li>$1</li>')
-      .replace(/(<li>.*?<\/li>\s*)+/gs, '<ul>$&</ul>')
-      .replace(/\n\n+/g, '</p><p>')
-      .replace(/^(?!<[hula])/gm, '<p>')
-      .replace(/(?!>)$/gm, '</p>')
-      .replace(/<p><\/p>/g, '')
-      .replace(/<p>(<[hula])/g, '$1')
-      .replace(/(<\/[hula][^>]*>)<\/p>/g, '$1');
-  } catch (error) {
-    console.error('Failed to load CTA markdown:', error);
+    const suffix = lang === 'pt' ? '' : `-${lang}`;
+    const base = filePath.replace('.md', `${suffix}.md`);
+    const fullPath = join(process.cwd(), base);
+    return parseCta(readFileSync(fullPath, 'utf-8'));
+  } catch {
+    return '';
   }
 }
+
+const ctaPt = enabled ? loadCta('pt') : '';
+const ctaEn = enabled ? loadCta('en') : '';
+const ctaEs = enabled ? loadCta('es') : '';
 ---
 
 {
-  enabled && ctaHTML && (
+  enabled && ctaPt && (
     <aside class="my-8 p-4 sm:p-5 rounded-xl bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm">
-      <div class="cta-content prose prose-sm max-w-none dark:prose-invert" set:html={ctaHTML} />
+      <div data-i18n="pt" class="cta-content prose prose-sm max-w-none dark:prose-invert" set:html={ctaPt} />
+      {ctaEn && <div data-i18n="en" class="cta-content prose prose-sm max-w-none dark:prose-invert" set:html={ctaEn} />}
+      {ctaEs && <div data-i18n="es" class="cta-content prose prose-sm max-w-none dark:prose-invert" set:html={ctaEs} />}
     </aside>
   )
 }
