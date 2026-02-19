@@ -1,0 +1,18 @@
+---
+import { ui, type UiKey } from '@/lib/i18n';
+
+interface Props {
+  k: UiKey;
+  tag?: string;
+  class?: string;
+}
+
+const { k, tag: Tag = 'span', class: className } = Astro.props;
+const entry = ui[k];
+---
+
+<Fragment>
+  <Tag data-i18n="pt" class={className}>{entry.pt}</Tag>
+  <Tag data-i18n="en" class={className}>{entry.en}</Tag>
+  <Tag data-i18n="es" class={className}>{entry.es}</Tag>
+</Fragment>
