@@ -2,4 +2,4 @@ Licenciado en Sistemas de Información, apasionado por las Matemáticas, la Prog
 
 Enfocado en rendimiento, aprendizaje continuo y compartir conocimiento.
 
-Actualmente trabajando con desarrollo de software y compartiendo mi camino a través de la escritura.
+Actualmente trabajando como CTO de [Easy Pallet](https://easypallet.com.br), creando algoritmos e IAs y compartiendo mi camino a través de la escritura.

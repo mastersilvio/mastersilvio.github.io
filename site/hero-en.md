@@ -2,4 +2,4 @@ Bachelor in Information Systems, passionate about Mathematics, Programming and M
 
 Focused on performance, continuous learning and knowledge sharing.
 
-Currently working with software development and sharing my journey through writing.
+Currently working as CTO at [Easy Pallet](https://easypallet.com.br), building algorithms and AIs, and sharing my journey through writing.
