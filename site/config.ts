@@ -53,7 +53,7 @@ export interface SiteConfig {
 export const SITE: SiteConfig = {
   author: 'Sílvio Meireles',
   desc: 'Blog pessoal sobre tecnologia, vida e aprendizado contínuo.',
-  title: 'Sílvio Meireles',
+  title: 'Sílvio Meireles Notes',
   ogImage: 'og.png',
   lang: 'pt-BR',
   base: '/',
