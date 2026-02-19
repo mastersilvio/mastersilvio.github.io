@@ -38,8 +38,8 @@ export default defineConfig({
     AstroPWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Sílvio Meireles',
-        short_name: 'Sílvio M.',
+        name: 'Sílvio Notes',
+        short_name: 'Sílvio Notes',
         description: 'Blog pessoal sobre tecnologia, vida e aprendizado contínuo.',
         theme_color: '#09090b',
         background_color: '#09090b',
