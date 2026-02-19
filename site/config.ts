@@ -71,7 +71,7 @@ export const SITE: SiteConfig = {
   projectsDescription: 'Projetos que construí e tenho orgulho. Muitos deles são open-source.',
 
   featuredPostsCount: 3,
-  latestPostsCount: 5,
+  latestPostsCount: 10,
 
   homeProjects: {
     enabled: false,

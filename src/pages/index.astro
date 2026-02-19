@@ -18,7 +18,28 @@ const posts = (await getPublishedPosts()).sort(
 );
 
 const featuredPosts = posts.filter((post) => post.data.featured).slice(0, SITE.featuredPostsCount);
-const latestPosts = posts.filter((post) => !post.data.featured).slice(0, SITE.latestPostsCount);
+
+const nonFeatured = posts.filter((post) => !post.data.featured);
+const latestByLang = new Map<string, typeof nonFeatured>();
+for (const post of nonFeatured) {
+  const lang = post.data.lang || 'en';
+  const arr = latestByLang.get(lang) || [];
+  if (arr.length < SITE.latestPostsCount) {
+    arr.push(post);
+    latestByLang.set(lang, arr);
+  }
+}
+const latestPostIds = new Set<string>();
+const latestPosts: typeof nonFeatured = [];
+for (const arr of latestByLang.values()) {
+  for (const p of arr) {
+    if (!latestPostIds.has(p.id)) {
+      latestPostIds.add(p.id);
+      latestPosts.push(p);
+    }
+  }
+}
+latestPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const projects = (await getCollection('projects'))
   .sort((a, b) => a.data.order - b.data.order)
