@@ -32,13 +32,17 @@ export async function getPublishedPosts(): Promise<CollectionEntry<'posts'>[]> {
  * Get the effective slug for a post.
  * Priority:
  * 1. frontmatter slug
- * 2. Generated date-slug (YYYY-MM-DD-filename)
+ * 2. Generated date-slug from the filename (strip lang folder prefix)
  */
 export function getPostSlug(post: CollectionEntry<'posts'>): string {
   if (post.data.slug) {
     return post.data.slug;
   }
 
+  const basename = post.id.includes('/') ? post.id.split('/').pop()! : post.id;
   const date = post.data.pubDate.toISOString().split('T')[0];
-  return `${date}-${post.id}`;
+  if (basename.startsWith(date)) {
+    return basename;
+  }
+  return `${date}-${basename}`;
 }
