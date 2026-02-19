@@ -4,6 +4,7 @@ import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
+import AstroPWA from '@vite-pwa/astro';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -32,6 +33,26 @@ export default defineConfig({
     partytown({
       config: {
         forward: ['dataLayer.push'],
+      },
+    }),
+    AstroPWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'Sílvio Meireles',
+        short_name: 'Sílvio M.',
+        description: 'Blog pessoal sobre tecnologia, vida e aprendizado contínuo.',
+        theme_color: '#09090b',
+        background_color: '#09090b',
+        display: 'standalone',
+        icons: [
+          { src: '/pwa-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/pwa-512x512.png', sizes: '512x512', type: 'image/png' },
+          { src: '/pwa-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
+        ],
+      },
+      workbox: {
+        globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
+        navigateFallback: null,
       },
     }),
   ],
