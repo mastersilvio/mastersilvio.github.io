@@ -10,6 +10,7 @@ import SocialShare from '@/components/SocialShare.svelte';
 import SeriesNavigation from '@/components/SeriesNavigation.astro';
 import CTABlock from '@/components/CTABlock.astro';
 import Comments from '@/components/Comments.svelte';
+import PostLangRedirect from '@/components/PostLangRedirect.svelte';
 import { getBlogPostingSchema, getBreadcrumbSchema } from '@/lib/schemas';
 
 export async function getStaticPaths() {
@@ -26,6 +27,11 @@ const post = Astro.props as Props;
 const { Content, headings } = await render(post);
 
 const effectiveSlug = getPostSlug(post);
+const postLang = post.data.lang || 'en';
+const translations: Record<string, string> = {
+  [postLang]: effectiveSlug,
+  ...(post.data.translatedPosts || {}),
+};
 
 const schemas = [
   getBlogPostingSchema({
@@ -51,6 +57,7 @@ const schemas = [
   ogImage={`/og/${effectiveSlug}.png`}
   schema={schemas}
 >
+  <PostLangRedirect client:load currentLang={postLang} translations={translations} />
   <Breadcrumbs
     items={[
       { name: 'Blog', href: '/posts' },
