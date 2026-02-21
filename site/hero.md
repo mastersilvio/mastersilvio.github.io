@@ -1,5 +1,1 @@
-Bacharel em Sistemas de Informação, apaixonado por Matemática, Programação e Machine Learning.
-
-Focado em performance, aprendizado contínuo e compartilhamento de conhecimento.
-
-Atualmente trabalhando como CTO da [Easy Pallet](https://easypallet.com.br), criando algoritmos e IAs e compartilhando minha jornada através da escrita.
+Solucionador de problemas, na maior parte do tempo com números. IA, Algoritmos, Matemática e Programação. CTO da [Easy Pallet](http://easypallet.com.br)
