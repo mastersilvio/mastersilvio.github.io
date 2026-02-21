@@ -4,11 +4,13 @@ title: "I'm Sílvio Meireles"
 
 Developer and technology enthusiast.
 
-Bachelor in Information Systems, passionate about Mathematics and Programming from an early age.
+Bachelor in Information Systems, passionate about Mathematics, Programming and Machine Learning from an early age.
 
 My career has always been linked to solving complex problems, using algorithms, logical thinking and data-driven decision making. I have worked as a Mathematics and Robotics teacher, an experience that strengthened my foundation in logic, systems, automation and technical education.
 
-Currently, I am specializing as a Machine Learning Engineer, deepening my knowledge in modeling, data, intelligent automation and building systems that learn and evolve over time.
+Focused on performance, continuous learning and knowledge sharing.
+
+Currently working as CTO at [Easy Pallet](https://easypallet.com.br), building algorithms and AIs, and sharing my journey through writing.
 
 I have an entrepreneurial profile. I enjoy turning real problems into practical solutions, creating products, structuring processes and building technology with concrete impact on business and people's lives. I move comfortably between engineering, data, product and operations — from the idea to the algorithm, from the experiment to the result.
 
