@@ -2,6 +2,7 @@
 title: Easy Pallet
 description: Solução digital para transformação da área de picking, cobrindo toda a operação de ponta a ponta — da montagem e conferência de paletes à liberação de veículos, com gestão em tempo real via indicadores e relatórios.
 link: https://easypallet.com.br
+image: https://logo.clearbit.com/easypallet.com.br
 tags:
   - Logística
   - SaaS
