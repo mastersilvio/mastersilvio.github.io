@@ -78,9 +78,23 @@ const projects = (await getCollection('projects')).sort(
               </svg>
             </div>
 
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              {project.data.description}
-            </p>
+            {project.data.descriptions ? (
+              <>
+                <p data-i18n="pt" class="text-sm text-muted-foreground leading-relaxed flex-1">
+                  {project.data.descriptions.pt ?? project.data.description}
+                </p>
+                <p data-i18n="en" class="text-sm text-muted-foreground leading-relaxed flex-1">
+                  {project.data.descriptions.en ?? project.data.description}
+                </p>
+                <p data-i18n="es" class="text-sm text-muted-foreground leading-relaxed flex-1">
+                  {project.data.descriptions.es ?? project.data.description}
+                </p>
+              </>
+            ) : (
+              <p class="text-sm text-muted-foreground leading-relaxed flex-1">
+                {project.data.description}
+              </p>
+            )}
 
             {project.data.tags.length > 0 && (
               <div class="flex flex-wrap gap-2">
