@@ -79,7 +79,7 @@ export const SITE: SiteConfig = {
   },
 
   cta: {
-    enabled: true,
+    enabled: false,
     filePath: 'site/cta.md',
   },
 
