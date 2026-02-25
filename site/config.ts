@@ -68,7 +68,7 @@ export const SITE: SiteConfig = {
   homeHeroDescription:
     'Bacharel em Sistemas de Informação, apaixonado por Matemática, Programação e Machine Learning. Aqui compartilho pensamentos sobre tecnologia, vida e aprendizado contínuo.',
   blogDescription: 'Uma coleção de pensamentos, tutoriais e descobertas sobre tecnologia e vida.',
-  projectsDescription: 'Projetos que construí e tenho orgulho. Muitos deles são open-source.',
+  projectsDescription: 'Projetos que construí e tenho orgulho.',
 
   featuredPostsCount: 3,
   latestPostsCount: 10,

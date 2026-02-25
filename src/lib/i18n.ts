@@ -17,6 +17,7 @@ export const ui = {
   allPosts: { pt: 'Todos os Posts', en: 'All Posts', es: 'Todas las Publicaciones' },
   readMore: { pt: 'Leia mais', en: 'Read more', es: 'Leer más' },
   popularTopics: { pt: 'Tópicos Populares', en: 'Popular Topics', es: 'Temas Populares' },
+  projectsDescription: { pt: 'Projetos que construí e tenho orgulho.', en: "Projects I've built and am proud of.", es: 'Proyectos que construí y de los que estoy orgulloso.' },
 } as const;
 
 export type UiKey = keyof typeof ui;

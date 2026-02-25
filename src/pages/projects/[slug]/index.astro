@@ -27,7 +27,7 @@ const schema = getBreadcrumbSchema([
 ]);
 ---
 
-<Layout title={project.data.title} description={project.data.description} schema={schema}>
+<Layout title={project.data.title} description={project.data.description.pt} schema={schema}>
   <Breadcrumbs
     items={[
       { name: 'Projects', href: '/projects' },
@@ -44,11 +44,9 @@ const schema = getBreadcrumbSchema([
             {project.data.title}
           </h1>
 
-          <p
-            class="text-lg sm:text-xl text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-6 py-2"
-          >
-            {project.data.description}
-          </p>
+          <p data-i18n="pt" class="text-lg sm:text-xl text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-6 py-2">{project.data.description.pt}</p>
+          <p data-i18n="en" class="text-lg sm:text-xl text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-6 py-2">{project.data.description.en}</p>
+          <p data-i18n="es" class="text-lg sm:text-xl text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-6 py-2">{project.data.description.es}</p>
 
           <div class="flex flex-wrap gap-3">
             {
