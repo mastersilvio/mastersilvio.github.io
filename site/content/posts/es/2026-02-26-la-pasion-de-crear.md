@@ -1,5 +1,5 @@
 ---
-title: 'La pasión de crear'
+title: 'La pasión por crear'
 description: 'Ser un creador es algo fascinante. Con la IA, ese poder de crear se ha multiplicado muchas veces.'
 pubDate: 2026-02-26
 tags: ['Tecnología', 'IA', 'Creación', 'Desarrollo', 'Reflexión']

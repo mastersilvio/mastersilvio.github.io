@@ -1,5 +1,5 @@
 ---
-title: 'A paixão de criar'
+title: 'A paixão por criar'
 description: 'Ser um criador é algo fascinante. Com as IAs, esse poder de criar foi aumentado em diversas vezes.'
 pubDate: 2026-02-26
 tags: ['Tecnologia', 'IA', 'Criação', 'Desenvolvimento', 'Reflexão']
@@ -12,7 +12,7 @@ translatedPosts:
 
 Ser um criador é algo fascinante.
 
-Criar programas e produtos e colocá-lo para outras pessoas usarem é um prazer enorme.
+Criar programas e produtos e colocá-los para outras pessoas usarem é um prazer enorme.
 
 Receber elogios e bons feedbacks é algo maravilhoso.
 
