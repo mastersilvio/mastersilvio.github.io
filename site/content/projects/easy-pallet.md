@@ -1,9 +1,9 @@
 ---
 title: Easy Pallet
 description:
-  pt: Solução digital para transformação da área de picking, cobrindo toda a operação de ponta a ponta — da montagem e conferência de paletes à liberação de veículos, com gestão em tempo real via indicadores e relatórios.
-  en: Digital solution for transforming picking operations, covering the entire workflow end-to-end — from pallet assembly and verification to vehicle release, with real-time management through dashboards and reports.
-  es: Solución digital para la transformación del área de picking, cubriendo toda la operación de extremo a extremo — desde el armado y verificación de pallets hasta la liberación de vehículos, con gestión en tiempo real mediante indicadores e informes.
+  pt: Otimização Logística com Inteligência Artificial. Planejamento inteligente de carga e Solução digital para transformação da área de picking, cobrindo toda a operação de ponta a ponta — do planejamento da carga, montagem e conferência de paletes à liberação de veículos, com gestão em tempo real via indicadores e relatórios.
+  en: AI-powered Logistics Optimization. Intelligent load planning and digital solution for transforming picking operations, covering the entire workflow end-to-end — from load planning, pallet assembly and verification to vehicle release, with real-time management through dashboards and reports.
+  es: Optimización Logística con Inteligencia Artificial. Planificación inteligente de carga y solución digital para la transformación del área de picking, cubriendo toda la operación de extremo a extremo — desde la planificación de carga, el armado y verificación de pallets hasta la liberación de vehículos, con gestión en tiempo real mediante indicadores e informes.
 link: https://easypallet.com.br
 image: https://logo.clearbit.com/easypallet.com.br
 tags:
