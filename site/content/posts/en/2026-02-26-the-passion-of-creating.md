@@ -1,5 +1,5 @@
 ---
-title: 'The Passion of Creating'
+title: 'The Passion for Creating'
 description: 'Being a creator is something fascinating. With AI, this power to create has been multiplied many times over.'
 pubDate: 2026-02-26
 tags: ['Technology', 'AI', 'Creation', 'Development', 'Reflection']
