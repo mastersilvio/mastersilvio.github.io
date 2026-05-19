@@ -10,8 +10,8 @@ translatedPosts:
   es: 'el-poder-realista-del-pensamiento-positivo-es'
 ---
 
-> “O que você pensa determina a qualidade da sua mente.
-> **Sua alma assume a cor dos seus pensamentos.**”
+> O que você pensa determina a qualidade da sua mente.
+> **Sua alma assume a cor dos seus pensamentos.**
 > — Marco Aurélio (Meditações 5.16)
 
 Em uma fase da minha vida, adotei um pensamento extremamente positivo — e os resultados foram excelentes em várias áreas.
