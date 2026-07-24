@@ -125,7 +125,7 @@ const socialIcons: Record<string, string> = {
               <I18nLabel k="viewAllPosts" />
             </a>
           </div>
-          <div class="grid gap-3 sm:gap-4">
+          <div class="grid gap-5 sm:grid-cols-2 sm:gap-6">
             {featuredPosts.map((post) => (
               <PostCard {post} slug={getPostSlug(post)} readTime={getReadTime(post.body || '')} />
             ))}
@@ -146,7 +146,7 @@ const socialIcons: Record<string, string> = {
           <I18nLabel k="archive" />
         </a>
       </div>
-      <div class="grid gap-3 sm:gap-4">
+      <div class="grid gap-5 sm:grid-cols-2 sm:gap-6 3xl:grid-cols-3">
         {
           latestPosts.map((post) => (
             <PostCard {post} slug={getPostSlug(post)} readTime={getReadTime(post.body || '')} />

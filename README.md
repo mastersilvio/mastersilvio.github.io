@@ -110,6 +110,22 @@ Conteúdo do post em Markdown...
 
 3. Para posts bilíngues, crie outro arquivo com o slug da tradução e adicione `translatedPosts` referenciando o par.
 
+### Imagem de Capa
+
+Todo post tem uma imagem de capa nos cards e no topo do artigo. Se nada for
+informado, a capa é gerada automaticamente a partir da primeira tag do post
+(gradiente + padrão geométrico + ícone do tema), sempre igual para o mesmo post.
+
+Para usar uma imagem própria, coloque o arquivo em `site/assets/` e informe no
+frontmatter (também aceita URL absoluta):
+
+```yaml
+cover: '/covers/meu-post.jpg'
+coverAlt: 'Descrição da imagem para acessibilidade'
+```
+
+Os temas visuais e o mapa de tags ficam em `src/lib/utils/cover.ts`.
+
 ## Deploy
 
 O deploy é automático via GitHub Actions. Ao fazer push na branch `master`, o workflow:

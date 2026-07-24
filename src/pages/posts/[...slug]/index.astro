@@ -10,6 +10,7 @@ import SocialShare from '@/components/SocialShare.svelte';
 import SeriesNavigation from '@/components/SeriesNavigation.astro';
 import CTABlock from '@/components/CTABlock.astro';
 import Comments from '@/components/Comments.svelte';
+import PostCover from '@/components/PostCover.svelte';
 import PostLangRedirect from '@/components/PostLangRedirect.svelte';
 import { getBlogPostingSchema, getBreadcrumbSchema } from '@/lib/schemas';
 
@@ -69,6 +70,16 @@ const schemas = [
     <!-- Main Content -->
     <div class="flex-1 min-w-0">
       <div class="mb-8">
+        <div class="mb-8 aspect-[21/9] overflow-hidden rounded-2xl border border-border bg-secondary">
+          <PostCover
+            id={post.id}
+            tags={post.data.tags}
+            cover={post.data.cover}
+            alt={post.data.coverAlt || post.data.title}
+            iconSize={64}
+          />
+        </div>
+
         <header class="flex flex-col gap-4">
           <div
             class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-muted-foreground font-bold uppercase tracking-widest"

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { formatDate } from '@/lib/utils/date';
   import { getLangFlag } from '@/lib/utils/lang';
+  import PostCover from './PostCover.svelte';
 
   interface Props {
     post: {
@@ -14,6 +15,8 @@
         featured?: boolean;
         draft?: boolean;
         lang?: string;
+        cover?: string;
+        coverAlt?: string;
       };
     };
     readTime: string;
@@ -24,38 +27,24 @@
 </script>
 
 <article
-  class="group relative -mx-4 px-4 py-3 sm:py-4 rounded-2xl hover:bg-accent transition-all duration-300"
+  class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
   data-post-lang={post.data.lang || 'pt'}
 >
-  <div class="flex flex-col gap-1.5">
-    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-      <h2 class="text-base sm:text-lg font-black tracking-tight leading-tight">
-        <a href={`/posts/${slug}`} class="transition-colors no-underline">
-          <span class="absolute -inset-x-0 -inset-y-0 z-20"></span>
-          <span class="relative z-10 text-foreground group-hover:text-primary transition-colors"
-            >{post.data.title}</span
-          >
-        </a>
-      </h2>
-      <time
-        datetime={post.data.pubDate.toISOString()}
-        class="flex-shrink-0 text-xs font-medium text-muted-foreground tabular-nums uppercase tracking-widest"
-      >
-        {formatDate(post.data.pubDate)}
-      </time>
-    </div>
+  <!-- Cover -->
+  <div class="relative aspect-[16/9] overflow-hidden bg-secondary">
+    <PostCover
+      id={post.id}
+      tags={post.data.tags}
+      cover={post.data.cover}
+      alt={post.data.coverAlt || post.data.title}
+      class="transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+    />
 
-    <p
-      class="relative z-10 text-[13px] sm:text-sm leading-relaxed text-muted-foreground line-clamp-2 max-w-[95%]"
-    >
-      {post.data.description}
-    </p>
-
-    <div
-      class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold uppercase tracking-widest text-muted-foreground mt-1.5"
-    >
+    <div class="absolute left-3 top-3 flex flex-wrap items-center gap-2">
       {#if post.data.featured}
-        <div class="flex items-center gap-1 text-primary">
+        <span
+          class="inline-flex items-center gap-1 rounded-full bg-black/35 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-sm"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-3 w-3"
@@ -67,12 +56,13 @@
             />
           </svg>
           Destaque
-        </div>
-        <span class="hidden sm:inline text-border">•</span>
+        </span>
       {/if}
 
       {#if post.data.draft}
-        <div class="flex items-center gap-1 text-amber-600 dark:text-amber-400">
+        <span
+          class="inline-flex items-center gap-1 rounded-full bg-amber-500/90 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-amber-950"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-3 w-3"
@@ -86,11 +76,31 @@
             />
           </svg>
           Rascunho
-        </div>
-        <span class="hidden sm:inline text-border">•</span>
+        </span>
       {/if}
+    </div>
 
-      <div class="flex items-center gap-1.5">
+    {#if post.data.lang && post.data.lang !== 'pt'}
+      <span
+        class="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/35 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-sm"
+        title={`Idioma: ${post.data.lang}`}
+      >
+        <span class="text-xs leading-none">{getLangFlag(post.data.lang)}</span>
+        {post.data.lang}
+      </span>
+    {/if}
+  </div>
+
+  <!-- Body -->
+  <div class="flex flex-1 flex-col p-5">
+    <div
+      class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"
+    >
+      <time datetime={post.data.pubDate.toISOString()} class="tabular-nums">
+        {formatDate(post.data.pubDate)}
+      </time>
+      <span class="text-border">•</span>
+      <span class="inline-flex items-center gap-1.5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-3 w-3"
@@ -106,26 +116,33 @@
           />
         </svg>
         {readTime}
-      </div>
+      </span>
+    </div>
 
-      <span class="hidden sm:inline text-border">•</span>
+    <h2 class="mt-2.5 text-lg font-black leading-tight tracking-tight sm:text-xl">
+      <a href={`/posts/${slug}`} class="no-underline">
+        <span class="absolute inset-0 z-10"></span>
+        <span class="relative text-foreground transition-colors group-hover:text-primary">
+          {post.data.title}
+        </span>
+      </a>
+    </h2>
 
-      <div class="flex gap-3">
+    <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+      {post.data.description}
+    </p>
+
+    {#if post.data.tags?.length}
+      <div class="mt-auto flex flex-wrap gap-1.5 pt-4">
         {#each post.data.tags.slice(0, 3) as tag (tag)}
-          <span class="hover:text-primary transition-colors cursor-pointer">#{tag}</span>
+          <a
+            href={`/posts/tag/${tag}`}
+            class="relative z-20 inline-flex items-center rounded-md border border-border bg-background px-2 py-1 text-[11px] font-medium text-muted-foreground no-underline transition-colors hover:border-primary/50 hover:text-primary"
+          >
+            #{tag}
+          </a>
         {/each}
       </div>
-
-      {#if post.data.lang && post.data.lang !== 'pt'}
-        <span class="hidden sm:inline text-border">•</span>
-        <div
-          class="flex items-center gap-1.5 transition-all cursor-help"
-          title={`Idioma: ${post.data.lang}`}
-        >
-          <span class="text-sm leading-none">{getLangFlag(post.data.lang)}</span>
-          <span class="text-[10px] opacity-70 uppercase">{post.data.lang}</span>
-        </div>
-      {/if}
-    </div>
+    {/if}
   </div>
 </article>
